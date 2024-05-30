@@ -12,7 +12,7 @@ import UIKit
 public enum DynamicIsland {
   
   /// An object hat provides a progress indicator that shows progress around the dynamic island cutout.
-  public static let progressIndicator: ProgressIndicator = {
+  public static var progressIndicator: ProgressIndicator = {
     precondition(DynamicIsland.isAvailable,
                  "Cannot show dynamic island progress indicator on a device that does not support it!")
     return .init()
