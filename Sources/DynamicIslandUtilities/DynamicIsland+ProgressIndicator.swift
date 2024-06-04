@@ -8,7 +8,7 @@
 import UIKit
 
 extension DynamicIsland {
-  public class ProgressIndicator {
+  public struct ProgressIndicator {
     private var progressIndicatorImpl: DynamicIslandProgressIndicatorImplementation
     
     init () {
@@ -20,7 +20,7 @@ extension DynamicIsland {
     /// By default, it's added to the key window (or the first window
     /// of the first scene), but you can change that by assigning a
     /// different window to this property.
-    public var window: UIWindow = Self.getMainWindow() {
+    public var window: UIWindow = ProgressIndicator.getMainWindow() {
       didSet {
         progressIndicatorImpl.changeContext(to: window)
       }
