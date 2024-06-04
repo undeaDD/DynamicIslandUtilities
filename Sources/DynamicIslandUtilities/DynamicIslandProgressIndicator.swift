@@ -104,8 +104,7 @@ final class DynamicIslandProgressIndicatorImplementation: UIView {
   }
   
   private func requiresIndeterminateProgress(equalTo value: Bool) {
-    precondition(isProgressIndeterminate == value,
-                 "isProgressIndeterminate must be set to '\(value)'!")
+    
   }
   
   private func requiresState(equalTo value: State) {
@@ -117,7 +116,6 @@ final class DynamicIslandProgressIndicatorImplementation: UIView {
     default:
       message = ""
     }
-    precondition(state == value, message)
   }
   
   private func createAndAddDynamicIslandBorderLayers() {
