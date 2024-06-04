@@ -8,8 +8,8 @@
 import UIKit
 
 extension DynamicIsland {
-  public final class ProgressIndicator {
-    private let progressIndicatorImpl: DynamicIslandProgressIndicatorImplementation
+  public class ProgressIndicator {
+    private var progressIndicatorImpl: DynamicIslandProgressIndicatorImplementation
     
     init () {
       progressIndicatorImpl = .init()
