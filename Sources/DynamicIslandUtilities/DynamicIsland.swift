@@ -52,7 +52,9 @@ public enum DynamicIsland {
       return identifier + String(UnicodeScalar(UInt8(value)))
     }
 #endif
-    
+#if DEBUG
+    print(identifier)
+#endif
     return identifier == "iPhone15,2" || identifier == "iPhone15,3"
   }()
 }
