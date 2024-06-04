@@ -11,7 +11,7 @@ extension DynamicIsland {
   public struct ProgressIndicator {
     private var progressIndicatorImpl: DynamicIslandProgressIndicatorImplementation
     
-    init () {
+    public init() {
       progressIndicatorImpl = .init()
       progressIndicatorImpl.add(toContext: window)
     }
