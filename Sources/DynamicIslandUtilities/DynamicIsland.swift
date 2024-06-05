@@ -55,6 +55,6 @@ public enum DynamicIsland {
 #if DEBUG
     print("[Foraum] Device Identifier: \(identifier)")
 #endif
-    return identifier == "iPhone15,2" || identifier == "iPhone15,3"
+    return ["iPhone15,2", "iPhone15,3", "iPhone15,4", "iPhone15,5", "iPhone16,1", "iPhone16,2"].contains(identifier)
   }()
 }
