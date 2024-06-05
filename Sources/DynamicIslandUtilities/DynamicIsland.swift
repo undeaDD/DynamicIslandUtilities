@@ -53,7 +53,7 @@ public enum DynamicIsland {
     }
 #endif
 #if DEBUG
-    print(identifier)
+    print("[Foraum] Device Identifier: \(identifier)")
 #endif
     return identifier == "iPhone15,2" || identifier == "iPhone15,3"
   }()
