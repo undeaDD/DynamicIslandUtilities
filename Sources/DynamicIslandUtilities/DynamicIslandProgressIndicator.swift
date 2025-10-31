@@ -73,13 +73,20 @@ final class DynamicIslandProgressIndicatorImplementation: UIView {
     partialTailLayer.add(partialTailAnimation(), forKey: nil)
     state = .animating
   }
+
+  fileprivate func setProgressSilently(_ value: Double) {
+        let clamped = min(max(0, value), 100)
+        _progress = Clamped(between: 0...100)
+        _progress.wrappedValue = clamped
+        tailLayer.strokeEnd = 0
+        partialTailLayer.strokeEnd = 0
+    }
   
   func hideProgressIndicator() {
     tailLayer.isHidden = true
     partialTailLayer.isHidden = true
     resetProgressIndicator()
-    state = .animating
-    progress = 0
+    setProgressSilently(0.0)
     state = .ready
   }
   
@@ -194,16 +201,22 @@ final class DynamicIslandProgressIndicatorImplementation: UIView {
 /// A property wrapper that clamps a value between a specified range.
 @propertyWrapper
 struct Clamped<Value: Comparable> {
-  private var value: Value
-  private let range: ClosedRange<Value>
-  
-  init(between range: ClosedRange<Value>) {
-    self.value = range.lowerBound
-    self.range = range
-  }
-  
-  var wrappedValue: Value {
-    get { value }
-    set { value = min(max(range.lowerBound, newValue), range.upperBound) }
-  }
+    private var value: Value
+    private let range: ClosedRange<Value>
+
+    init(between range: ClosedRange<Value>) {
+        self.value = range.lowerBound
+        self.range = range
+    }
+
+    var wrappedValue: Value {
+        get { value }
+        set { value = min(max(range.lowerBound, newValue), range.upperBound) }
+    }
+
+    var projectedValue: Value {
+        get { value }
+        set { value = newValue }
+    }
 }
+
