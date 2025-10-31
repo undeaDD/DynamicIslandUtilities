@@ -78,6 +78,7 @@ final class DynamicIslandProgressIndicatorImplementation: UIView {
     tailLayer.isHidden = true
     partialTailLayer.isHidden = true
     resetProgressIndicator()
+    progress = 0
     state = .ready
   }
   
